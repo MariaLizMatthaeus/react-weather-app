@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function SearchEngine() {
   let [city, setCity] = useState("");
@@ -34,9 +36,21 @@ export default function SearchEngine() {
       <input
         type="search"
         placeholder="Type a city name ..."
+        className="form-control border-end-0 border"
+        autoComplete="off"
         onChange={updateCity}
       />
-      <button type="Submit">Search</button>
+
+      <button className="btn btn-large" type="submit">
+        <FontAwesomeIcon icon={solid("search")} />
+      </button>
+      <button
+        type="button"
+        className="btn current-location"
+        id="current-button"
+      >
+        <FontAwesomeIcon icon={solid("map-marked")} />
+      </button>
     </form>
   );
 
